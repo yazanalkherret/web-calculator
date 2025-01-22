@@ -17,17 +17,13 @@ function divide(a, b) {
 function operate(a, b, operator) {
     switch (operator) {
         case '+':
-            add(a, b);
-            break;
+            return add(a, b);
         case '-':
-            subtract(a, b);
-            break;
+            return subtract(a, b);
         case '*':
-            multiply(a, b);
-            break;
+            return multiply(a, b);
         case '/':
-            divide(a, b);
-            break;
+            return divide(a, b);
     }
 }
 
@@ -90,6 +86,8 @@ function populateBottomSection(){
     
     bottomCard.appendChild(clearButton);
     bottomCard.appendChild(equalButton);
+
+    addEqualEventListener(equalButton);
 }
 
 function updateDisplay(str){
@@ -111,9 +109,20 @@ function addOperatorsEventListeners(buttonArray){
     buttonArray.forEach((button) => {
         button.addEventListener('click', () => {
             firstNum = Number(display.textContent);
+            operator = button.textContent;
             display.textContent = '';
-        })
-    })
+        });
+    });
+}
+
+function addEqualEventListener(button) {
+    button.addEventListener('click', () => {
+        const display = document.querySelector("#display");
+        secondNum = Number(display.textContent);
+        let result = operate(firstNum,secondNum,operator);
+        updateDisplay(result);
+
+    });
 }
 
 
