@@ -1,0 +1,52 @@
+.button {
+    background-color: aliceblue;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#display {
+    width: 200px;
+    height: 75px;
+    background-color: lightgray;
+    text-align: right;
+}
+
+#calculator-card {
+    display: flex;
+    flex-direction: column;
+}
+
+#top-section{
+    display: flex;
+}
+
+#left-section {
+    width: 150px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#right-section {
+    width: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#bottom-section {
+    display: flex;
+}
+
+#clear-button, #equal-button {
+    width: 100px;
+}
+
+#equal-button {
+    background-color: lightgreen;   
+}
+
+#clear-button {
+    background-color: lightcoral;
+}
