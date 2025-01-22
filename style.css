@@ -10,7 +10,7 @@ body {
     width: 400px;
     height: 98px;
     display: flex;
-    background-color: lightgray;
+    background-color: aliceblue;
     align-items: center;
     justify-content: right;
 }
@@ -42,13 +42,13 @@ body {
 }
 
 .button {
-    background-color: aliceblue;
+    background-color: lightblue;
     width: 98px;
     height: 98px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid 1px lightblue;
+    border: solid 1px aliceblue;
 }
 
 

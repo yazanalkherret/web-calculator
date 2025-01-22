@@ -111,6 +111,9 @@ function addOperatorsEventListeners(buttonArray){
     const display = document.querySelector("#display");
     buttonArray.forEach((button) => {
         button.addEventListener('click', () => {
+            if(operator){
+                calculateAndShowResult();
+            }
             firstNum = Number(display.textContent);
             operator = button.textContent;
             display.textContent = '';
@@ -124,11 +127,13 @@ function calculateAndShowResult() {
     display.textContent = '';
     let result = operate(firstNum,secondNum,operator);
     updateDisplay(result);
-    operator = ''; //to reset operator
 }
 
 function addEqualEventListener(button) {
-    button.addEventListener('click', calculateAndShowResult);
+    button.addEventListener('click', () => {
+        calculateAndShowResult();
+        operator = ''; //to reset operator
+    });
 }
 
 function addClearEventListenr(button) {
