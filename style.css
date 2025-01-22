@@ -1,17 +1,18 @@
-.button {
-    background-color: aliceblue;
-    width: 50px;
-    height: 50px;
-    display: flex;
+body {
     align-items: center;
-    justify-content: center;
+}
+#main-card {
+    width: 400px;
+    margin: auto;
 }
 
 #display {
-    width: 200px;
-    height: 75px;
+    width: 400px;
+    height: 98px;
+    display: flex;
     background-color: lightgray;
-    text-align: right;
+    align-items: center;
+    justify-content: right;
 }
 
 #calculator-card {
@@ -24,29 +25,41 @@
 }
 
 #left-section {
-    width: 150px;
+    width: 300px;
     display: flex;
     flex-wrap: wrap;
 }
 
 #right-section {
-    width: 50px;
+    width: 100px;
     display: flex;
     flex-wrap: wrap;
 }
 
 #bottom-section {
+    width: 400px;
     display: flex;
 }
 
+.button {
+    background-color: aliceblue;
+    width: 98px;
+    height: 98px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px lightblue;
+}
+
+
 #clear-button, #equal-button {
-    width: 100px;
+    width: 200px;
 }
 
 #equal-button {
-    background-color: lightgreen;   
+    background-color: aliceblue;   
 }
 
 #clear-button {
-    background-color: lightcoral;
+    background-color: aliceblue;
 }

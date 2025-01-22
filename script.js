@@ -43,6 +43,7 @@ function populateLeftSection() {
                 break;
             case 11:
                 buttonArray[i].textContent = "%";
+                buttonArray[i].classList.add("operator");
                 break;
             default:
                 buttonArray[i].textContent = i + 1;
@@ -62,6 +63,7 @@ function populateMiddleSection() {
     for (let i = 0; i < 4; i++) {
         buttonArray[i] = document.createElement("div");
         buttonArray[i].classList.add("button");
+        buttonArray[i].classList.add("operator");
         buttonArray[i].textContent = operatorArray[i];
     }
 
@@ -88,6 +90,7 @@ function populateBottomSection(){
     bottomCard.appendChild(equalButton);
 
     addEqualEventListener(equalButton);
+    addClearEventListenr(clearButton);
 }
 
 function updateDisplay(str){
@@ -115,13 +118,25 @@ function addOperatorsEventListeners(buttonArray){
     });
 }
 
-function addEqualEventListener(button) {
-    button.addEventListener('click', () => {
-        const display = document.querySelector("#display");
-        secondNum = Number(display.textContent);
-        let result = operate(firstNum,secondNum,operator);
-        updateDisplay(result);
+function calculateAndShowResult() {
+    const display = document.querySelector("#display");
+    secondNum = Number(display.textContent);
+    display.textContent = '';
+    let result = operate(firstNum,secondNum,operator);
+    updateDisplay(result);
+    operator = ''; //to reset operator
+}
 
+function addEqualEventListener(button) {
+    button.addEventListener('click', calculateAndShowResult);
+}
+
+function addClearEventListenr(button) {
+    button.addEventListener('click', () => {
+        firstNum = '';
+        secondNum = '';
+        operator = '';
+        display.textContent = '';
     });
 }
 
