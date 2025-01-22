@@ -54,7 +54,7 @@ function populateLeftSection() {
 
     }
     buttonArray.forEach((button) => leftCard.appendChild(button));
-    addEventListeners(buttonArray);
+    addNumbersEventListeners(buttonArray);
 }
 
 
@@ -70,6 +70,7 @@ function populateMiddleSection() {
     }
 
     buttonArray.forEach((button) => rightCard.appendChild(button));
+    addOperatorsEventListeners(buttonArray);
     
 }
 
@@ -96,7 +97,7 @@ function updateDisplay(str){
     display.textContent += str;
 }
 
-function addEventListeners(buttonArray){
+function addNumbersEventListeners(buttonArray){
     for (let i = 0; i < buttonArray.length; i++) {
         buttonArray[i].addEventListener('click', () => {
             updateDisplay(buttonArray[i].textContent);
@@ -104,22 +105,24 @@ function addEventListeners(buttonArray){
     }
 }
 
+function addOperatorsEventListeners(buttonArray){
+    //store firstNum and clear display
+    const display = document.querySelector("#display");
+    buttonArray.forEach((button) => {
+        button.addEventListener('click', () => {
+            firstNum = Number(display.textContent);
+            display.textContent = '';
+        })
+    })
+}
+
+
 function createButtonsGui(){
     populateLeftSection();
     populateMiddleSection();
     populateBottomSection();
 }
-/* const mybtn = populateLeftSection();
-
-const display = document.querySelector('#display');
-mybtn.addEventListener('click',() => {
-    display.textContent += mybtn.textContent;
-    }) */
+     
+createButtonsGui();
    
-   
-   createButtonsGui();
-   
-   let firstNum, secondNum, operator;
-   
-   
-   
+let firstNum, secondNum, operator;
